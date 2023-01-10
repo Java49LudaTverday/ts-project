@@ -1,6 +1,7 @@
 import { Shape } from "./ShapeInterface";
 import { Rectangle } from "./Rectangel";
 import { Square } from "./Square";
+import { ShapesContainer } from "./ShapesContener";
 
 const shapes: Array<Shape> =[
     new Rectangle (3,4),
@@ -10,3 +11,7 @@ const shapes: Array<Shape> =[
 const sumOfShapes: number = shapes.reduce((res,cur) => 
      res + cur.getSquare(), 0);
 console.log (sumOfShapes);
+
+const shapeCont = new ShapesContainer (shapes);
+const square = shapeCont.getSquare();
+console.log(square);
