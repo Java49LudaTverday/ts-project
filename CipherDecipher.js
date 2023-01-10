@@ -15,19 +15,17 @@ class CipherDecipher {
         return this.cipherDecipherFun(str, this.mapperDecipher);
     }
     cipherDecipherFun(str, mapperFun) {
-        try {
-            this.validShift(this.shift);
-            const arStr = Array.from(str);
-            console.log(arStr);
-            const arRes = arStr.map(symb => {
-                let res = mapperFun.bind(this)(symb);
-                return res;
-            });
-            return arRes.join('');
-        }
-        catch (mes) {
-            console.log(mes);
-        }
+        const leastSymb = String.fromCharCode(this.leastASCIIcode);
+        const mostSymb = String.fromCharCode(this.mostASCIIcode);
+        const arStr = Array.from(str);
+        const arRes = arStr.map(symb => {
+            let res = symb;
+            if (symb <= mostSymb && symb >= leastSymb) {
+                res = mapperFun.bind(this)(symb);
+            }
+            return res;
+        });
+        return arRes.join('');
     }
     mapperCipher(symb) {
         const actualShift = (symb.charCodeAt(0) - this.leastASCIIcode + this.shift) % this.amountAllASCIIsym;
@@ -36,11 +34,6 @@ class CipherDecipher {
     mapperDecipher(symb) {
         const actialShift = (this.mostASCIIcode - symb.charCodeAt(0) + this.shift) % this.amountAllASCIIsym;
         return String.fromCharCode(this.mostASCIIcode - actialShift);
-    }
-    validShift(shift) {
-        if (shift > this.mostASCIIcode) {
-            throw "error: shift cannot be greater mostASCIIcode";
-        }
     }
 }
 exports.CipherDecipher = CipherDecipher;

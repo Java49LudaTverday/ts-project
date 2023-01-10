@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const CipherDecipher_1 = require("./CipherDecipher");
-const cipher1 = new CipherDecipher_1.CipherDecipher(0, 225, 3);
+const cipher1 = new CipherDecipher_1.CipherDecipher(48, 57, 20);
 let res = cipher1.shiftCipher("abz123");
 console.log(cipher1);
 console.log(res);
