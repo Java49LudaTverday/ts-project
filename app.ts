@@ -12,6 +12,6 @@ const sumOfShapes: number = shapes.reduce((res,cur) =>
      res + cur.getSquare(), 0);
 console.log (sumOfShapes);
 
-const shapeCont = new ShapesContainer (shapes);
-const square = shapeCont.getSquare();
-console.log(square);
+const shapeCont: ShapesContainer = new ShapesContainer (shapes);
+const sumSquares: number = shapeCont.getSquare();
+console.log(sumSquares);

@@ -10,6 +10,6 @@ const shapes = [
 const sumOfShapes = shapes.reduce((res, cur) => res + cur.getSquare(), 0);
 console.log(sumOfShapes);
 const shapeCont = new ShapesContener_1.ShapesContainer(shapes);
-const square = shapeCont.getSquare();
-console.log(square);
+const sumSquares = shapeCont.getSquare();
+console.log(sumSquares);
 //# sourceMappingURL=app.js.map
