@@ -35,8 +35,8 @@ class Company {
     }
     getEmployeeBySalary(salaryFrom, salaryTo) {
         this.validFromToSalary(salaryFrom, salaryTo);
-        const emplOfSalary = this.employees.filter(empl => empl.computeSalary() >= salaryFrom && empl.computeSalary() <= salaryTo);
-        return emplOfSalary.sort(empl => empl.birthYear - empl.birthYear);
+        const emplOfSalary = this.employees.filter((empl) => empl.computeSalary() >= salaryFrom && empl.computeSalary() <= salaryTo);
+        return emplOfSalary.sort((empl1, empl2) => empl1.birthYear - empl2.birthYear);
     }
     computeBudget() {
         return this.employees.reduce((budget, empl) => budget += empl.computeSalary(), 0);
